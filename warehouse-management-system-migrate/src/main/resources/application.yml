@@ -1,0 +1,11 @@
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/warehouse_management_system
+    user: postgres
+    password: root
+    enabled: true
+    analytics-enabled: false
+    driver-class-name: org.postgresql.Driver
+    change-log: classpath:/db/changelog/db.changelog-master.yml
