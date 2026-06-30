@@ -1,0 +1,14 @@
+server:
+  port: 8999
+
+spring:
+  application:
+    name: Warehouse Management System
+  datasource:
+    url: jdbc:postgresql://localhost:5432/warehouse_management_system
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  exposed:
+    show-sql: true
+    generate-ddl: false

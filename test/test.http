@@ -1,0 +1,52 @@
+### Send POST request with json body
+POST http://localhost:8999/v1/items
+Content-Type: application/json
+Authorization: Bearer {{$auth.token("")}}
+{
+  "id": "0000007",
+  "code" : "43333222",
+  "name": "maj",
+  "description": "desc",
+  "category": "elec",
+  "unit": "PCS",
+  "quantity": 10,
+  "warehouseId": "0000003",
+  "actorId": "1",
+  "actorType": "admin"
+}
+
+### Send POST request with json body
+POST http://localhost:8090/v1/items
+Content-Type: application/json
+
+{
+  "id": "0000002",
+  "code" : "4345",
+  "name": "ffd",
+  "description": "desc",
+  "category": "ff",
+  "unit": "PCS"
+}
+###
+POST http://localhost:8090/v1/items/deactivate
+Content-Type: application/json
+
+{
+  "code" : "4345"
+}
+###
+PATCH http://localhost:8090/v1/items
+Content-Type: application/json
+
+{
+  "code" : "43333222",
+  "name" : "ALI",
+  "description": "aliiii",
+  "actorId": "1",
+  "actorType": "admin"
+
+}
+
+###
+GET http://localhost:8090/v1/items?warehouseId=0000003
+Content-Type: application/json

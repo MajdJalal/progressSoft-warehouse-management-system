@@ -1,0 +1,55 @@
+services:
+  postgreSQL:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5432:5432"
+  postgreSQL-ps-security:
+    restart: always
+    image: postgres
+    networks:
+      - whs-network
+    ports:
+      - "5455:5432"
+    environment:
+      - POSTGRES_DB=saturn_keycloak
+      - POSTGRES_USER=saturn_keycloak
+      - POSTGRES_PASSWORD=saturn_keycloak
+  ps-security:
+    image: quay.io/keycloak/keycloak:26.6.4
+    ports:
+      - "9992:8080"
+    #    command: [ "-b", "0.0.0.0","-Dkeycloak.profile.feature.upload_scripts=enabled" ]
+    command: start-dev
+    networks:
+      - whs-network
+    platform: 'linux/amd64'
+    environment:
+      - KC_BOOTSTRAP_ADMIN_USERNAME=admin
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=admin
+      - KEYCLOAK_EXTRA_ARGS_PREPENDED="--spi-login-protocol-openid-connect-legacy-logout-redirect-uri=true"
+      - keycloak.adminUser.create-admin-user-enabled=true
+      - PROXY_ADDRESS_FORWARDING=true
+      - WEB_ORIGIN=http://localhost:9992
+      - keycloak.import=/realms
+      - spring.cloud.bootstrap.enabled=false
+      - spring.cloud.vault.enabled=false
+      - REALM_NAME=whs
+      - KC_DB=postgres
+      - KC_DB_USERNAME=saturn_keycloak
+      - KC_DB_PASSWORD=saturn_keycloak
+      - KC_HOSTNAME=localhost
+      - KC_DB_URL=jdbc:postgresql://postgreSQL-ps-security/saturn_keycloak
+    depends_on:
+      - postgreSQL-ps-security
+    volumes:
+      - ./ps-security:/realms
+volumes:
+  db:
+networks:
+  whs-network:
+    driver: bridge

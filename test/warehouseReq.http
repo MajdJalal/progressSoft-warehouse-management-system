@@ -1,0 +1,52 @@
+### Send POST request with json body
+POST http://localhost:8090/v1/warehouses/create
+Content-Type: application/json
+
+{
+  "id": "0000003",
+  "code" : "34352",
+  "name": "omar",
+  "description": "desc",
+  "address": "irbid"
+}
+
+### Send POST request with json body
+POST http://localhost:8090/v1/warehouses/deactivate
+Content-Type: application/json
+
+{
+  "id": "0000002",
+  "code" : "3232",
+  "name": "ffd",
+  "description": "desc",
+  "category": "ff",
+  "unit": "PCS"
+}
+###
+PATCH http://localhost:8090/v1/warehouses
+Content-Type: application/json
+
+{
+  "code" : "3232",
+  "name" : "ALI",
+  "description": "aliiii"
+
+}
+
+###
+GET http://localhost:8090/v1/warehouses
+Content-Type: application/json
+
+{
+  "page": 0,
+  "size": 10
+}
+
+###
+GET http://localhost:8090/v1/warehouses/inventory/0000003
+Content-Type: application/json
+
+{
+  "page": 0,
+  "size": 10
+}
