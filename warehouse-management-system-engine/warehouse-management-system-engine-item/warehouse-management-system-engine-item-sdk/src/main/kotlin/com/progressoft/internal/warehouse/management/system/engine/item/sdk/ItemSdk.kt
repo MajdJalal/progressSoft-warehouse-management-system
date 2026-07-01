@@ -13,4 +13,5 @@ interface ItemSdk {
     val deactivateItem: Operation<DeactivateItemRequest, Unit>
     val viewAllItems: Operation<ViewItemsRequest, ViewItemsPaginationResponse<ItemResponse>>
     val viewItemHistory: Operation<ViewItemHistoryRequest, ViewItemHistoryPaginationResponse<ItemAuditResponse>>
+    val transferItem: Operation<TransferItemRequest, Unit>
 }

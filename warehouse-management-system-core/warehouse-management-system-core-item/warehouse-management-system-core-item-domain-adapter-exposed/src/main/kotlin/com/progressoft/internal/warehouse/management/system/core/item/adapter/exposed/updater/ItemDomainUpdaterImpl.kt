@@ -106,6 +106,20 @@ class ItemDomainUpdaterImpl(
         return this@ItemDomainUpdaterImpl
     }
 
+    override fun String.warehouseId(): ItemDomainUpdater {
+        addHistoryRecord(
+            AuditLogData(
+                keyName = Item::warehouseId.name,
+                oldValue = item.quantity,
+                newValue = this
+            )
+        )
+
+
+        item.warehouseId = this
+        return this@ItemDomainUpdaterImpl
+    }
+
 
     override fun ItemDomain.createAudit(
         log: AuditLogData<String>,

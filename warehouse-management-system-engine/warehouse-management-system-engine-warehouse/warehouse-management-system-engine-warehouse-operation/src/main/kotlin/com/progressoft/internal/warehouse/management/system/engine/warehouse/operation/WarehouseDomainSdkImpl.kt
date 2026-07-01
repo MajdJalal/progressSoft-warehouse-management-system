@@ -1,6 +1,7 @@
 package com.progressoft.internal.warehouse.management.system.engine.warehouse.operation
 
 import com.progressoft.internal.warehouse.management.system.core.warehouse.store.WarehouseStore
+import com.progressoft.internal.warehouse.management.system.engine.warehouse.operation.domain.ExistWarehouseById
 import com.progressoft.internal.warehouse.management.system.engine.warehouse.operation.domain.FindWarehouseById
 import com.progressoft.internal.warehouse.management.system.engine.warehouse.sdk.WarehouseDomainSdk
 import com.progressoft.internal.warehouse.management.system.warehouse.domain.WarehouseDomain
@@ -14,6 +15,16 @@ class WarehouseDomainSdkImpl(
         operationBuilder {
             mainOperation(
                 FindWarehouseById(
+                    warehouseQuery = warehouseStore.storeQuery
+                )
+            )
+        }
+
+    override val existWarehouseById: Operation<String, Unit> =
+        operationBuilder {
+
+            mainOperation(
+                ExistWarehouseById(
                     warehouseQuery = warehouseStore.storeQuery
                 )
             )

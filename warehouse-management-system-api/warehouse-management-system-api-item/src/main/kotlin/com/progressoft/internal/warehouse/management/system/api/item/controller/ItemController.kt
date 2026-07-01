@@ -2,6 +2,7 @@ package com.progressoft.internal.warehouse.management.system.api.item.controller
 
 import com.progressoft.internal.warehouse.management.system.api.item.contract.ItemContract
 import com.progressoft.internal.warehouse.management.system.api.item.model.DeactivateItemModel
+import com.progressoft.internal.warehouse.management.system.api.item.model.TransferItemModel
 import com.progressoft.internal.warehouse.management.system.api.item.model.ViewItemHistoryQueryModel
 import com.progressoft.internal.warehouse.management.system.api.item.model.ViewItemsQueryModel
 import com.progressoft.internal.warehouse.management.system.engine.item.sdk.ItemSdk
@@ -64,5 +65,17 @@ class ItemController(
         val result =
             itemSdk.viewItemHistory.runOperation(request)
         return ResponseEntity.ok().body(result)
+    }
+
+    override fun updateItem(model: TransferItemModel): ResponseEntity<Unit> {
+        val request =
+            TransferItemRequest(
+                itemId = model.itemId,
+                newWarehouseId = model.newWarehouseId,
+                actorId = model.actorId,
+                actorType = model.actorType,
+            )
+        itemSdk.transferItem.runOperation(request)
+        return ResponseEntity.ok().build()
     }
 }

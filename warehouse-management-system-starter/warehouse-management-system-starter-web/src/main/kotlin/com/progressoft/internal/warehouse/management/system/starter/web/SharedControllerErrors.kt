@@ -11,4 +11,9 @@ enum class SharedControllerErrors(
         "WHS-1000",
         "Error occurred while processing your request"
     ),
+
+    UNAUTHORIZED_ERROR(
+        "WHS-1000",
+        "user not authorized to perform this request"
+    ),
 }

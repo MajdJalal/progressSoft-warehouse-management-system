@@ -6,4 +6,5 @@ import io.arkitik.radix.develop.operation.Operation
 interface WarehouseDomainSdk {
 
     val findWarehouseById: Operation<String, WarehouseDomain>
+    val existWarehouseById: Operation<String, Unit>
 }

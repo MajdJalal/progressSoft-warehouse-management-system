@@ -1,6 +1,7 @@
 package com.progressoft.internal.warehouse.management.system.api.item.contract
 
 import com.progressoft.internal.warehouse.management.system.api.item.model.DeactivateItemModel
+import com.progressoft.internal.warehouse.management.system.api.item.model.TransferItemModel
 import com.progressoft.internal.warehouse.management.system.api.item.model.ViewItemHistoryQueryModel
 import com.progressoft.internal.warehouse.management.system.api.item.model.ViewItemsQueryModel
 import com.progressoft.internal.warehouse.management.system.engine.item.sdk.request.CreateItemRequest
@@ -46,5 +47,11 @@ interface ItemContract {
     @PreAuthorize("hasRole('STAFF')")
     fun updateItem(
         @RequestBody request: UpdateItemRequest
+    ): ResponseEntity<Unit>
+
+    @PostMapping("/v1/items/transfer")
+    @PreAuthorize("hasRole('STAFF')")
+    fun updateItem(
+        @RequestBody model: TransferItemModel
     ): ResponseEntity<Unit>
 }

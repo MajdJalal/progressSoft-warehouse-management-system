@@ -14,4 +14,5 @@ interface ItemDomainUpdater : AuditStoreIdentityUpdater<String, ItemDomain, Item
     fun Int.quantity(): ItemDomainUpdater
     fun String.category(): ItemDomainUpdater
     fun ItemUnit.unit(): ItemDomainUpdater
+    fun String.warehouseId(): ItemDomainUpdater
 }

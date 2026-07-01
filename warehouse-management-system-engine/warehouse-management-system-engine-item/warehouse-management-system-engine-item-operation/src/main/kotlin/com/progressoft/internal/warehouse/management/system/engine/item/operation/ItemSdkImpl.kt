@@ -109,4 +109,16 @@ class ItemSdkImpl(
                 )
             )
         }
+
+    override val transferItem: Operation<TransferItemRequest, Unit> =
+        operationBuilder {
+            install(JakartaValidator())
+            mainOperation(
+                TransferItemOperation(
+                    itemStore = itemStore,
+                    warehouseDomainSdk = warehouseDomainSdk,
+                    itemAuditSdk = itemAuditSdk,
+                )
+            )
+        }
 }
