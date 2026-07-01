@@ -2,20 +2,17 @@ package com.progressoft.internal.warehouse.management.system.engine.item.operati
 
 import com.progressoft.internal.warehouse.management.system.core.item.domain.ItemAuditDomain
 import com.progressoft.internal.warehouse.management.system.core.item.domain.ItemDomain
+import com.progressoft.internal.warehouse.management.system.core.item.store.ItemAuditStore
 import com.progressoft.internal.warehouse.management.system.core.item.store.ItemStore
 import com.progressoft.internal.warehouse.management.system.engine.item.operation.dto.DeactivateItemDto
-import com.progressoft.internal.warehouse.management.system.engine.item.operation.main.CreateItemOperation
-import com.progressoft.internal.warehouse.management.system.engine.item.operation.main.DeactivateItemOperation
-import com.progressoft.internal.warehouse.management.system.engine.item.operation.main.UpdateItemOperation
-import com.progressoft.internal.warehouse.management.system.engine.item.operation.main.ViewItemsOperation
+import com.progressoft.internal.warehouse.management.system.engine.item.operation.main.*
 import com.progressoft.internal.warehouse.management.system.engine.item.operation.role.ItemCreationValidationRole
 import com.progressoft.internal.warehouse.management.system.engine.item.sdk.ItemSdk
 import com.progressoft.internal.warehouse.management.system.engine.item.sdk.errors.ItemErrors
-import com.progressoft.internal.warehouse.management.system.engine.item.sdk.request.CreateItemRequest
-import com.progressoft.internal.warehouse.management.system.engine.item.sdk.request.DeactivateItemRequest
-import com.progressoft.internal.warehouse.management.system.engine.item.sdk.request.UpdateItemRequest
-import com.progressoft.internal.warehouse.management.system.engine.item.sdk.request.ViewItemsRequest
+import com.progressoft.internal.warehouse.management.system.engine.item.sdk.request.*
+import com.progressoft.internal.warehouse.management.system.engine.item.sdk.response.ItemAuditResponse
 import com.progressoft.internal.warehouse.management.system.engine.item.sdk.response.ItemResponse
+import com.progressoft.internal.warehouse.management.system.engine.item.sdk.response.ViewItemHistoryPaginationResponse
 import com.progressoft.internal.warehouse.management.system.engine.item.sdk.response.ViewItemsPaginationResponse
 import com.progressoft.internal.warehouse.management.system.engine.warehouse.sdk.WarehouseDomainSdk
 import io.arkitik.radix.audit.sdk.RadixAuditSdk
@@ -28,7 +25,8 @@ import io.arkitik.radix.develop.shared.ext.resourceNotFound
 class ItemSdkImpl(
     itemStore: ItemStore,
     warehouseDomainSdk: WarehouseDomainSdk,
-    itemAuditSdk: RadixAuditSdk<String, ItemDomain, ItemAuditDomain>
+    itemAuditSdk: RadixAuditSdk<String, ItemDomain, ItemAuditDomain>,
+    itemAuditStore: ItemAuditStore
 ) : ItemSdk {
     override val createItem: Operation<CreateItemRequest, Unit> =
         operationBuilder {
@@ -97,6 +95,17 @@ class ItemSdkImpl(
                 UpdateItemOperation(
                     itemStore = itemStore,
                     itemAuditSdk = itemAuditSdk,
+                )
+            )
+        }
+
+    override val viewItemHistory: Operation<ViewItemHistoryRequest, ViewItemHistoryPaginationResponse<ItemAuditResponse>> =
+        operationBuilder {
+            install(JakartaValidator())
+
+            mainOperation(
+                ViewItemHistoryOperation(
+                    itemAuditStore = itemAuditStore
                 )
             )
         }

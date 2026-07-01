@@ -20,5 +20,9 @@
             <groupId>io.arkitik.radix</groupId>
             <artifactId>radix-development-shared</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
     </dependencies>
 </project>

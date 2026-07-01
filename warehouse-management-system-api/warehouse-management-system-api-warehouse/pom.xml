@@ -25,6 +25,11 @@
             <artifactId>warehouse-management-system-engine-warehouse-port</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>7.1.0</version>
+        </dependency>
     </dependencies>
 
 

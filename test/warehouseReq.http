@@ -1,18 +1,21 @@
 ### Send POST request with json body
-POST http://localhost:8090/v1/warehouses/create
+POST http://localhost:8999/v1/warehouses/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI0QWdUZ0k0U1piRjc2Q3Z4eVAwWTFrcW5mNVFlY3dyOWpqMy15NDk5ZkhNIn0.eyJleHAiOjE3ODI4NDExMjYsImlhdCI6MTc4Mjg0MDgyNiwianRpIjoib25ydHJvOjRiMzEwMTcwLTNjYTktZjg4OS01OTM3LWJmYTNmZGRlYmIzYiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTk5Mi9yZWFsbXMvd2hzIiwic3ViIjoiYzliNjM4NzktNjFhZi00MTdjLWJkMjYtY2RjNDU5YmMxNDJjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2hzLXVpIiwic2lkIjoiY1ZZX1V3REZMWk5YX0huREQySEFpdzNQIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIkFkbWluIl19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJtYWpkIGphbGFsIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiZnVsbEB3aHMiLCJnaXZlbl9uYW1lIjoibWFqZCIsImZhbWlseV9uYW1lIjoiamFsYWwiLCJlbWFpbCI6Indoc0B3aHMuY29tIn0.B2krROQI18kv0CUE7WyaHJUeukROy6hoXQx2Zdc3sah8ZZhNuXNO19qrsg4W4zD4K-MKrpmXPoI4b6EObJEEvfiuxAxmFCQKeDBKaGpitBsoPtFXVTUij8YKw2icEhweXp_IpatTn3W6D1Db1c0F7PS2yOSncx3qSxMg3t-80flx44bWsBaYHQT1c7APTgr7ITcvmv4Fd5zGbA1JmG8zLLLeH-8ounWNqIxJQRzvIvEMWMtYw1RxQv8bG_y_pAp5ElP8cmGDMiXHA3tKIm6zFAawav3teiSmkLfMo0CUCCvz3hlmJ6GJsw2HVp9ADP62fHFblfWrrzL5d2BiJcJzVg
 
 {
-  "id": "0000003",
-  "code" : "34352",
+  "id": "0000002",
+  "code" : "99303920",
   "name": "omar",
   "description": "desc",
-  "address": "irbid"
+  "address": "irbjdkid"
 }
 
 ### Send POST request with json body
-POST http://localhost:8090/v1/warehouses/deactivate
+POST http://localhost:8999/v1/warehouses/deactivate
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI0QWdUZ0k0U1piRjc2Q3Z4eVAwWTFrcW5mNVFlY3dyOWpqMy15NDk5ZkhNIn0.eyJleHAiOjE3ODI4NDA2NzgsImlhdCI6MTc4Mjg0MDM3OCwianRpIjoib25ydHJvOjhiOWJiMWU0LTc2MzgtYmRiZi1mOTkzLTk3MjIxMGE0N2Y2MCIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTk5Mi9yZWFsbXMvd2hzIiwic3ViIjoiYzliNjM4NzktNjFhZi00MTdjLWJkMjYtY2RjNDU5YmMxNDJjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2hzLXVpIiwic2lkIjoiWmo2Z1NaRHRPdmtMa1JGa0sxeXBRZDFMIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIkFkbWluIl19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJtYWpkIGphbGFsIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiZnVsbEB3aHMiLCJnaXZlbl9uYW1lIjoibWFqZCIsImZhbWlseV9uYW1lIjoiamFsYWwiLCJlbWFpbCI6Indoc0B3aHMuY29tIn0.g_MW4QIz6waD68xfFfwmKjJO3tI5i7A5agQZihr5-2QtaEmPmGX2Kh14YM6N_8cydLLOdd-uQdeZRsYPmsv02t63NhL0NBmqX81lw4V3W8Q_-624pU3rYiriM0cbPcixGypPALmr0lJOplahMN9H65qDWkSB6YrSkbFxdzHwErNQpk0mJ-rYcf9Ylv9CP8pjCDL6fVkdcWR0iOcY3K9mEUa_5f67SSs05XdO8IO115V54mbhfOmj1E-9Db04Iz4TynQ7Lh3Ew3HbaNObb60axHurJr8cQlyu8R_KhxF6pT6-FRTLawm9-zsGntrPZwAkPDlqWRAqNplnB8XPii6R5w
+
 
 {
   "id": "0000002",
@@ -23,7 +26,7 @@ Content-Type: application/json
   "unit": "PCS"
 }
 ###
-PATCH http://localhost:8090/v1/warehouses
+PATCH http://localhost:8999/v1/warehouses
 Content-Type: application/json
 
 {
@@ -34,7 +37,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8090/v1/warehouses
+GET http://localhost:8999/v1/warehouses
 Content-Type: application/json
 
 {
@@ -43,7 +46,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8090/v1/warehouses/inventory/0000003
+GET http://localhost:8999/v1/warehouses/inventory/0000003
 Content-Type: application/json
 
 {

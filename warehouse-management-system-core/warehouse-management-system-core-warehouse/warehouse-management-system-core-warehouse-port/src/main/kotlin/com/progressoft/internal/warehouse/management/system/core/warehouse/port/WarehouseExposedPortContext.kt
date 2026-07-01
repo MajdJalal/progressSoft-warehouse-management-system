@@ -14,8 +14,8 @@ class WarehouseExposedPortContext {
 
     @Bean
     fun warehouseStore(
-        @Autowired(required = false) database : Database
-    ) : WarehouseStore {
+        @Autowired(required = false) database: Database
+    ): WarehouseStore {
         return ExposedWarehouseStore(database)
     }
 }

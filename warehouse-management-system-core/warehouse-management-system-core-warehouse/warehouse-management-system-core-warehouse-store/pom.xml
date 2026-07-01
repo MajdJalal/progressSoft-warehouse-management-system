@@ -22,10 +22,5 @@
             <artifactId>warehouse-management-system-core-warehouse-domain</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.progressoft.internal.warehouse.management.system</groupId>
-            <artifactId>warehouse-management-system-core-item-domain</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 </project>

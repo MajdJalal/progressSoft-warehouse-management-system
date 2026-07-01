@@ -1,9 +1,9 @@
 package com.com.progressoft.internal.warehouse.management.system.engine.item.port
 
 import com.progressoft.internal.warehouse.management.system.core.item.adapter.exposed.ExposedItemAuditStore
-import com.progressoft.internal.warehouse.management.system.core.item.adapter.exposed.ExposedItemStore
 import com.progressoft.internal.warehouse.management.system.core.item.domain.ItemAuditDomain
 import com.progressoft.internal.warehouse.management.system.core.item.domain.ItemDomain
+import com.progressoft.internal.warehouse.management.system.core.item.store.ItemAuditStore
 import com.progressoft.internal.warehouse.management.system.core.item.store.ItemStore
 import com.progressoft.internal.warehouse.management.system.engine.item.operation.ItemSdkImpl
 import com.progressoft.internal.warehouse.management.system.engine.item.sdk.ItemSdk
@@ -23,7 +23,7 @@ class ItemPortContext {
     @Bean
     fun itemAuditRecordStore(
         @Autowired(required = false) database: Database?,
-    ): ExposedItemAuditStore =
+    ): ItemAuditStore =
         ExposedItemAuditStore(database)
 
 
@@ -39,17 +39,12 @@ class ItemPortContext {
     fun itemSdk(
         itemStore: ItemStore,
         @Autowired warehouseDomainSdk: WarehouseDomainSdk,
-        @Autowired itemAuditSdk: RadixAuditSdk<String, ItemDomain, ItemAuditDomain>
+        @Autowired itemAuditSdk: RadixAuditSdk<String, ItemDomain, ItemAuditDomain>,
+        @Autowired itemAuditStore: ItemAuditStore
     ): ItemSdk = ItemSdkImpl(
         itemStore = itemStore,
         warehouseDomainSdk = warehouseDomainSdk,
         itemAuditSdk = itemAuditSdk,
+        itemAuditStore = itemAuditStore
     )
-
-//    @Bean
-//    fun itemDomainSdk(
-//        itemStore: ItemStore,
-//    ): ItemDomainSdk = ItemDomainSdkImpl(
-//        itemStore = itemStore,
-//    )
 }

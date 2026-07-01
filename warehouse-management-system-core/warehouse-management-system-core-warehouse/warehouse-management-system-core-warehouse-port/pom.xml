@@ -22,10 +22,5 @@
             <artifactId>warehouse-management-system-core-warehouse-adapter-exposed</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        <dependency>
-            <groupId>${project.parent.groupId}</groupId>
-            <artifactId>warehouse-management-system-starter-exposed</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
     </dependencies>
 </project>

@@ -8,5 +8,4 @@ enum class AuthErrors(
 ) : ErrorResponse {
     NO_AUTH_TOKEN("PPS-AUTH-1000", "No authorization token"),
     INVALID_SIGNATURE("PPS-AUTH-2000", "Signature failed verification"),
-    UNRECOGNIZED_ERROR("PPS-AUTH-3000", "Unrecognized error, please try again");
 }

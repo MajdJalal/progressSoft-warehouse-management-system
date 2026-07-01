@@ -12,3 +12,8 @@ spring:
   exposed:
     show-sql: true
     generate-ddl: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9992/realms/whs

@@ -18,12 +18,12 @@
         </dependency>
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>warehouse-management-system-core-item-port</artifactId>
+            <artifactId>warehouse-management-system-engine-warehouse-sdk</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>warehouse-management-system-engine-warehouse-sdk</artifactId>
+            <artifactId>warehouse-management-system-core-item-store</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>

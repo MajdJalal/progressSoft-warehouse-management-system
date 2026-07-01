@@ -26,9 +26,14 @@
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.progressoft.internal.warehouse.management.system</groupId>
+            <groupId>${project.parent.groupId}</groupId>
             <artifactId>warehouse-management-system-core-item-domain</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>warehouse-management-system-core-item-domain-adapter-exposed</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>io.arkitik.radix</groupId>

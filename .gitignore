@@ -44,4 +44,3 @@ build/
 *.key
 *.pem
 realm-export.json
-whs-realm.json

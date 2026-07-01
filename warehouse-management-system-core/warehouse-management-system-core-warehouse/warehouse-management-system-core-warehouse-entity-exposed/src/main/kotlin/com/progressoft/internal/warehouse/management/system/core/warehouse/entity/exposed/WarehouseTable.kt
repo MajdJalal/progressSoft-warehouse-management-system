@@ -1,6 +1,5 @@
 package com.progressoft.internal.warehouse.management.system.core.warehouse.entity.exposed
 
-import com.progressoft.internal.warehouse.management.system.core.item.entity.exposed.ItemTable
 import com.progressoft.internal.warehouse.management.system.warehouse.domain.WarehouseDomain
 import com.progressoft.internal.warehouse.management.system.warehouse.domain.WarehouseStatus
 import io.arkitik.radix.develop.exposed.table.RadixTable

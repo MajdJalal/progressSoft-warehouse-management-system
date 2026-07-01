@@ -22,11 +22,6 @@
             <artifactId>warehouse-management-system-core-warehouse-store</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>${project.parent.groupId}</groupId>
-            <artifactId>warehouse-management-system-engine-item-port</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
     </dependencies>
 
 </project>

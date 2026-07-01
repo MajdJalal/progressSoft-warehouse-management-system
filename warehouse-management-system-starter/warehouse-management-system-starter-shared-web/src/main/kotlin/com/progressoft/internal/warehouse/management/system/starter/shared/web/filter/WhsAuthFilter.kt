@@ -35,7 +35,8 @@ class WhsAuthFilter : OncePerRequestFilter() {
         val certificateFactory: CertificateFactory = CertificateFactory.getInstance("X.509")
         val signature: Signature = Signature.getInstance("SHA256withRSA")
 
-        val initialFile: File = File("/home/majdalkhawaja/Development/warehouse-management-system/warehouse-management-system-starter/warehouse-management-system-starter-shared-web/src/main/resources/certificate.crt")
+        val initialFile: File =
+            File("/home/majdalkhawaja/Development/warehouse-management-system/warehouse-management-system-starter/warehouse-management-system-starter-shared-web/src/main/resources/certificate.crt")
         val targetStream: InputStream = FileInputStream(initialFile);
 
         val generateCertificate: Certificate = certificateFactory.generateCertificate(targetStream)
@@ -52,9 +53,6 @@ class WhsAuthFilter : OncePerRequestFilter() {
 
     }
 
-    private fun getUserSigniture(accessToken: String): String {
-        return accessToken.split(".")[2]
-    }
 
     private fun getAccessToken(request: HttpServletRequest): String? =
         request.getHeader(HttpHeaders.AUTHORIZATION)?.replace("Bearer", "")?.trim()

@@ -2,8 +2,10 @@ package com.progressoft.internal.warehouse.management.system.api.warehouse.contr
 
 import com.progressoft.internal.warehouse.management.system.api.warehouse.contract.WarehouseContract
 import com.progressoft.internal.warehouse.management.system.engine.warehouse.sdk.WarehouseSdk
-import com.progressoft.internal.warehouse.management.system.engine.warehouse.sdk.request.*
-import com.progressoft.internal.warehouse.management.system.engine.warehouse.sdk.response.ViewWarehouseInventoryResponse
+import com.progressoft.internal.warehouse.management.system.engine.warehouse.sdk.request.CreateWarehouseRequest
+import com.progressoft.internal.warehouse.management.system.engine.warehouse.sdk.request.DeactivateWarehouseRequest
+import com.progressoft.internal.warehouse.management.system.engine.warehouse.sdk.request.UpdateWarehouseRequest
+import com.progressoft.internal.warehouse.management.system.engine.warehouse.sdk.request.ViewWarehousesRequest
 import com.progressoft.internal.warehouse.management.system.engine.warehouse.sdk.response.ViewWarehousesPaginationResponse
 import com.progressoft.internal.warehouse.management.system.engine.warehouse.sdk.response.WarehouseResponse
 import io.arkitik.radix.develop.operation.ext.runOperation

@@ -2,13 +2,13 @@ package com.progressoft.internal.warehouse.management.system.api.item.controller
 
 import com.progressoft.internal.warehouse.management.system.api.item.contract.ItemContract
 import com.progressoft.internal.warehouse.management.system.api.item.model.DeactivateItemModel
+import com.progressoft.internal.warehouse.management.system.api.item.model.ViewItemHistoryQueryModel
 import com.progressoft.internal.warehouse.management.system.api.item.model.ViewItemsQueryModel
 import com.progressoft.internal.warehouse.management.system.engine.item.sdk.ItemSdk
-import com.progressoft.internal.warehouse.management.system.engine.item.sdk.request.CreateItemRequest
-import com.progressoft.internal.warehouse.management.system.engine.item.sdk.request.DeactivateItemRequest
-import com.progressoft.internal.warehouse.management.system.engine.item.sdk.request.UpdateItemRequest
-import com.progressoft.internal.warehouse.management.system.engine.item.sdk.request.ViewItemsRequest
+import com.progressoft.internal.warehouse.management.system.engine.item.sdk.request.*
+import com.progressoft.internal.warehouse.management.system.engine.item.sdk.response.ItemAuditResponse
 import com.progressoft.internal.warehouse.management.system.engine.item.sdk.response.ItemResponse
+import com.progressoft.internal.warehouse.management.system.engine.item.sdk.response.ViewItemHistoryPaginationResponse
 import com.progressoft.internal.warehouse.management.system.engine.item.sdk.response.ViewItemsPaginationResponse
 import io.arkitik.radix.develop.operation.ext.runOperation
 import org.springframework.http.ResponseEntity
@@ -52,5 +52,17 @@ class ItemController(
             )
         return ResponseEntity.ok()
             .body(items)
+    }
+
+    override fun viewItemHistory(model: ViewItemHistoryQueryModel): ResponseEntity<ViewItemHistoryPaginationResponse<ItemAuditResponse>> {
+        val request =
+            ViewItemHistoryRequest(
+                id = model.itemId,
+                model.page,
+                model.size
+            )
+        val result =
+            itemSdk.viewItemHistory.runOperation(request)
+        return ResponseEntity.ok().body(result)
     }
 }
